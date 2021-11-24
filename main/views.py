@@ -62,6 +62,11 @@ def category(request,id):
     })
 
 # Create your views here.
+class CommentList(generics.ListCreateAPIView):
+
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+
 class CategoryList(generics.ListAPIView):
 
     serializer_class = CategorySerializer
@@ -71,8 +76,3 @@ class NewsList(generics.ListAPIView):
 
     queryset = News.objects.all()
     serializer_class = NewsSerializer
-
-class CommentList(generics.ListCreateAPIView):
-
-    queryset = Category.objects.all()
-    serializer_class = CommentSerializer
