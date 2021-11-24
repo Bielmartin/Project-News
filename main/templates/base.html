@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}Home Page{% endblock %}</title>
+	<!-- Bootstrap 4 CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bs4/bootstrap.min.css' %}" />
+	<!-- Main Jquery -->
+	<script type="text/javascript" src="{% static 'vendor/jquery.min.js' %}"></script>
+	<!-- Bootstrap Js -->
+	<script type="text/javascript" src="{% static '/vendor/bs4/bootstrap.min.js' %}"></script>
+</head>
+<body>
+	<!-- Top News -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+		<div class="container">
+		  <a class="navbar-brand" href="/">The Plans</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarNav">
+		    <ul class="navbar-nav ml-auto">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="/">Início</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="{% url 'all-news' %}">Todas as notícias</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="{% url 'all-category' %}">Todas as categorias</a>
+		      </li>
+		    </ul>
+		  </div>
+	  	</div>
+    </nav>
+    
+    {% block content %}
+    {% endblock %}
+
+<hr/>
+<footer class="text-muted">
+  <div class="container">
+    <p class="float-right">
+      <a href="#">Back to top</a>
+    </p>
+    <p>Projeto desenvolvido em<a href="https://github.com/bielmartin"> Django</a>, sinta-se a vontade para útilizar e aperfeiçoar!</p>
+  </div>
+</footer>
+</body>
+</html>
