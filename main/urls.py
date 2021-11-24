@@ -3,8 +3,17 @@ from . import views
 from django.conf import settings
 from django.conf.urls import url
 from django.conf.urls.static import static
+from rest_framework.routers import SimpleRouter
 
 from . import views
+
+router = SimpleRouter(trailing_slash=True)
+router.register(
+    r'comment',
+    views.CommentList,
+    basename='comment-list'
+)
+
 urlpatterns = [
     path('', views.home, name = 'home'),
     path('all-news', views.all_news, name = 'all-news'),
@@ -13,5 +22,5 @@ urlpatterns = [
     path('category/<int:id>', views.category, name = 'category'),
     url(r'^category/$', views.CategoryList.as_view(), name='category-list'),
     url(r'^news/$', views.NewsList.as_view(), name='news-list'),
-    url(r'^comment/$', views.CommentList.as_view(), name='comment-list'),
+    #url(r'^comment/$', views.CommentList, name='comment-list'),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

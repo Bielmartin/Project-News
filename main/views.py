@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
 from .models import News, Category, Comment
-from rest_framework import generics
+from rest_framework import mixins, generics, viewsets
 from .serializers import CategorySerializer, NewsSerializer, CommentSerializer
 
 def home(request):
@@ -62,7 +62,14 @@ def category(request,id):
     })
 
 # Create your views here.
-class CommentList(generics.ListCreateAPIView):
+class CommentList(
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    viewsets.GenericViewSet,
+):
 
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
