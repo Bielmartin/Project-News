@@ -1,9 +1,9 @@
 from django.contrib import admin
 from .models import Category, News, Comment
 
-@admin.action(description='Gerar PDF selecionados')
 def gerar_pdf(modeladmin, request, queryset):
     pass
+gerar_pdf.short_description = "Gerar PDF selecionados"
 
 admin.site.register(Category)
 
