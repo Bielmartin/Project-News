@@ -20,6 +20,7 @@ urlpatterns = [
     path('detail/<int:id>', views.detail, name = 'detail'),
     path('all-category', views.all_category, name = 'all-category'),
     path('category/<int:id>', views.category, name = 'category'),
+    path('export-pdf', views.export_pdf, name ="export_pdf"),
     url(r'^category/$', views.CategoryList.as_view(), name='category-list'),
     url(r'^news/$', views.NewsList.as_view(), name='news-list'),
     #url(r'^comment/$', views.CommentList, name='comment-list'),

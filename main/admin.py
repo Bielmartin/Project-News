@@ -1,15 +1,20 @@
 from django.contrib import admin
 from .models import Category, News, Comment
+import datetime
+from django.http import FileResponse, HttpResponse, HttpResponseRedirect, response
+from django.template.loader import render_to_string
+import tempfile
+from django.db.models import Sum
+from weasyprint import HTML
+from .views import export_pdf
 
-def gerar_pdf(modeladmin, request, queryset):
-    pass
-gerar_pdf.short_description = "Gerar PDF selecionados"
+export_pdf.short_description = "Gerar PDF selecionados"
 
 admin.site.register(Category)
 
 class AdminNews(admin.ModelAdmin):
     list_display = ('title', 'category', 'add_time')
-    actions = [gerar_pdf]
+    actions = [export_pdf]
 
 admin.site.register(News,AdminNews)
 

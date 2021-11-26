@@ -20,6 +20,7 @@ class News(models.Model):
 
     class Meta:
         verbose_name_plural = 'News'
+        ordering = ['-id']
 
     def __str__(self):
         return self.title

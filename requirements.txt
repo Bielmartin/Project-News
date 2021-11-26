@@ -10,3 +10,5 @@ pytest==6.1.2
 pytest-cov==2.10.1
 pytest-django==4.1.0
 djangorestframework==3.12.4
+reportlab==3.5.67
+weasyprint==53.4

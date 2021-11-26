@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'rest_framework',
 ]
 
+THIRD_PARTY_APPS = [
+    'django_object_actions',
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
