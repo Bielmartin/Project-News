@@ -6,9 +6,8 @@ from rest_framework import mixins, generics, viewsets
 from .serializers import CategorySerializer, NewsSerializer, CommentSerializer
 import datetime
 from django.http import FileResponse, HttpResponse, HttpResponseRedirect, response
-import io
+import io, json
 from weasyprint import HTML
-
 from django.template.loader import render_to_string
 import tempfile
 from django.db.models import Sum
@@ -75,9 +74,12 @@ def export_pdf(modeladmin, request, queryset):
     response['Content-Disposition'] = 'attachment; filename=Expense' + \
         str(datetime.datetime.now())+'.pdf'
     response['Content-Transfer-Encoding'] = 'binary'
+    
+    categoria = Category.objects.get(pk=1)
+    noticias = News.objects.filter(category=categoria)
 
     html_string = render_to_string(
-        'pdf_template.html',{'templates':[],'total': 0})
+        'pdf_template.html',{'templates': noticias,'total': sum})
     html = HTML(string=html_string)
 
     result = html.write_pdf()
