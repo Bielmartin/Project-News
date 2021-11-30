@@ -12,3 +12,4 @@ pytest-django==4.1.0
 djangorestframework==3.12.4
 reportlab==3.5.67
 weasyprint==53.4
+django-ckeditor==6.2.0

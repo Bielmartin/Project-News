@@ -32,7 +32,11 @@
         <tr>
           <td>{{forloop.counter}}</td>
           <td>{{template.tittle}}</td>
-          <td>{{template.image}}</td>
+          <td>
+            <figure>
+              <img src="{{template.image}}" alt="Erro de carregamento na imagem">
+            </figure>
+          </td>
           <td>{{template.detail}}</td>
           <td>{{template.add_time}}</th>
         </tr>
