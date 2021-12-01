@@ -16,7 +16,7 @@ class News(models.Model):
     category=models.ForeignKey(Category,on_delete=models.CASCADE)
     title=models.CharField(max_length=300)
     image=models.ImageField(upload_to='imgs/')
-    detail=RichTextUploadingField()
+    detail=models.TextField()
     add_time=models.DateTimeField(auto_now_add=True)
 
     class Meta:
